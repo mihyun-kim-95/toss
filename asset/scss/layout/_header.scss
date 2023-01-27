@@ -1,0 +1,161 @@
+.header{
+    .logo{
+    position: fixed;
+    top: 30px;
+    left: 5%;
+    z-index: 10;
+
+        a{
+            &::after{
+                content:'';
+                display: inline-block;
+                width: 110px;
+                height: 60px;
+                background: url(../images/logo.png) no-repeat;
+                background-size: 110px 60px;
+            }
+        }
+    }
+
+    .nav-area{
+        padding: 12px 10px;
+        font-size: 15px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        gap: 40px;
+        top: 30px;
+        right: 5%;
+        color: #fff;
+        z-index: 10;
+
+        @include tablet{
+            display: none;
+        }
+
+        &::after{
+            content:'';
+            display: block;
+            background: #fff;
+            height: 1px;
+            width: 0%;
+            transition: 0.3s;
+        }
+    }  
+    
+    .nav{
+        &::after{
+            content:'';
+            display: block;
+            background: #fff;
+            height: 1px;
+            width: 0%;
+            transition: 0.3s;
+        }
+
+        &:hover{
+            &::after{
+                width: 100%;
+            }
+        }
+    }
+
+    .btn-open{
+        position: fixed;
+        top: 45px;
+        right: 6%;
+        width: 30px;
+        height: 30px;
+        z-index: 10;
+        display: none;
+
+        @include tablet{
+            display: block;
+        }
+
+        @include mobile{
+            width: 25px;
+            height: 25px;
+            display: block;
+        }
+
+    }
+
+    .mobile-inner{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 10;
+        visibility: hidden;
+        transform: translateY(-100%);
+        transition: 0.2s;
+
+        @include tablet{
+
+        &.open{
+            visibility: visible;
+            transform: translateY(0%);
+        }
+
+        .logo{
+            &::after{
+                content:'';
+                display: inline-block;
+                width: 110px;
+                height: 60px;
+                background: url(../images/logo.png) no-repeat;
+                background-size: 110px 60px;
+                left: 5%;
+            }
+
+            @include mobile{
+                left: 5%;
+            }
+        }
+
+
+        .inner-list{
+        padding: 40px 70px;
+        margin-top: 70px;
+            .inner-item{
+                display: flex;
+                flex-direction: column; 
+                gap: 25px;   
+                color: #4e5968;
+            }
+
+            @include mobile{
+                padding: 30px 40px;
+            }
+        }
+
+        .btn-close{
+            position: fixed;
+            top: 45px;
+            right: 6%;
+            width: 30px;
+            height: 30px;
+            z-index: 15;
+        }
+        }
+    }
+
+    &.active{
+        path{
+            fill: #000;
+        }
+
+        .nav-area{
+            color: #000;
+        }
+
+        .link-apply{
+            background: #262622;
+            color: #fff;
+        }
+    }
+}
+
